@@ -4,7 +4,7 @@ My personal portfolio website showcasing my experience, projects, and technical 
 
 🌐 **Live Portfolio:** https://ahsanportfolio-mu.vercel.app/
 
-![Ahsan Ali Portfolio](public/images/og/home.jpg)
+![Ahsan Ali Portfolio](public/images/og/cover-ahsan.png)
 
 ## About
 

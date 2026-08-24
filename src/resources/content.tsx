@@ -6,7 +6,7 @@ const person: Person = {
   lastName: "Ali",
   name: "Ahsan Ali",
   role: "Senior Full Stack Developer & Team Lead",
-  avatar: "/images/avatar.jpg",
+  avatar: "/images/avatar-ahsan.jpg",
   email: "ahsanusman2001@gmail.com",
   location: "Asia/Karachi",
   languages: ["English"],
@@ -83,8 +83,8 @@ const about: About = {
     display: true,
   },
   calendar: {
-    display: true,
-    link: "https://cal.com",
+    display: false,
+    link: "",
   },
   intro: {
     display: true,

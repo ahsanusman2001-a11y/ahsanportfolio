@@ -5,16 +5,12 @@ import {
   Avatar,
   RevealFx,
   Column,
-  Badge,
   Row,
   Schema,
   Meta,
-  Line,
 } from "@once-ui-system/core";
-import { home, about, person, baseURL, routes } from "@/resources";
-import { Mailchimp } from "@/components";
-import { Projects } from "@/components/work/Projects";
-import { Posts } from "@/components/blog/Posts";
+
+import { home, about, person, baseURL } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -42,40 +38,34 @@ export default function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
+
+      {/* Hero */}
       <Column fillWidth horizontal="center" gap="m">
         <Column maxWidth="s" horizontal="center" align="center">
-          {home.featured.display && (
-            <RevealFx
-              fillWidth
-              horizontal="center"
-              paddingTop="16"
-              paddingBottom="32"
-              paddingLeft="12"
-            >
-              <Badge
-                background="brand-alpha-weak"
-                paddingX="12"
-                paddingY="4"
-                onBackground="neutral-strong"
-                textVariant="label-default-s"
-                arrow={false}
-                href={home.featured.href}
-              >
-                <Row paddingY="2">{home.featured.title}</Row>
-              </Badge>
-            </RevealFx>
-          )}
+
           <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
             <Heading wrap="balance" variant="display-strong-l">
               {home.headline}
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+
+          <RevealFx
+            translateY="8"
+            delay={0.2}
+            fillWidth
+            horizontal="center"
+            paddingBottom="32"
+          >
+            <Text
+              wrap="balance"
+              onBackground="neutral-weak"
+              variant="heading-default-xl"
+            >
               {home.subline}
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
+
+          <RevealFx paddingTop="12" delay={0.4} horizontal="center">
             <Button
               id="about"
               data-border="rounded"
@@ -98,33 +88,119 @@ export default function Home() {
               </Row>
             </Button>
           </RevealFx>
+
         </Column>
       </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
-      </RevealFx>
-      {routes["/blog"] && (
-        <Column fillWidth gap="24" marginBottom="l">
-          <Row fillWidth paddingRight="64">
-            <Line maxWidth={48} />
-          </Row>
-          <Row fillWidth gap="24" marginTop="40" s={{ direction: "column" }}>
-            <Row flex={1} paddingLeft="l" paddingTop="24">
-              <Heading as="h2" variant="display-strong-xs" wrap="balance">
-                Latest from the blog
+
+      {/* Professional Highlights */}
+      <RevealFx translateY="16" delay={0.5} fillWidth>
+        <Column fillWidth gap="l">
+
+          <Heading as="h2" variant="display-strong-xs">
+            Professional Experience
+          </Heading>
+
+          <Text
+            variant="heading-default-m"
+            onBackground="neutral-weak"
+            wrap="balance"
+          >
+            Senior Full Stack Developer and Team Lead with extensive experience
+            building websites, web applications, business platforms, and
+            e-commerce solutions for clients across different industries.
+          </Text>
+
+          <Row
+            fillWidth
+            gap="m"
+            s={{ direction: "column" }}
+          >
+            <Column
+              fillWidth
+              padding="l"
+              background="neutral-alpha-weak"
+              radius="m"
+              gap="8"
+            >
+              <Heading as="h3" variant="heading-strong-xl">
+                8+ Years
               </Heading>
-            </Row>
-            <Row flex={3} paddingX="20">
-              <Posts range={[1, 2]} columns="2" />
-            </Row>
+              <Text onBackground="neutral-weak">
+                Professional web development experience
+              </Text>
+            </Column>
+
+            <Column
+              fillWidth
+              padding="l"
+              background="neutral-alpha-weak"
+              radius="m"
+              gap="8"
+            >
+              <Heading as="h3" variant="heading-strong-xl">
+                1000+
+              </Heading>
+              <Text onBackground="neutral-weak">
+                Websites and web applications delivered
+              </Text>
+            </Column>
+
+            <Column
+              fillWidth
+              padding="l"
+              background="neutral-alpha-weak"
+              radius="m"
+              gap="8"
+            >
+              <Heading as="h3" variant="heading-strong-xl">
+                6 Developers
+              </Heading>
+              <Text onBackground="neutral-weak">
+                Team members managed and supported
+              </Text>
+            </Column>
           </Row>
-          <Row fillWidth paddingLeft="64" horizontal="end">
-            <Line maxWidth={48} />
-          </Row>
+
         </Column>
-      )}
-      <Projects range={[2]} />
-      <Mailchimp />
+      </RevealFx>
+
+      {/* Platforms & Solutions */}
+      <RevealFx translateY="16" delay={0.7} fillWidth>
+        <Column fillWidth gap="l">
+
+          <Heading as="h2" variant="display-strong-xs">
+            Platforms & Solutions
+          </Heading>
+
+          <Text
+            variant="heading-default-m"
+            onBackground="neutral-weak"
+          >
+            Throughout my professional career, I have worked on a wide range
+            of platforms and solutions for different business requirements.
+          </Text>
+
+          <Row fillWidth gap="m" s={{ direction: "column" }}>
+
+            <Column fillWidth gap="12">
+              <Text>Hotel & Booking Platforms</Text>
+              <Text> E-commerce & WooCommerce</Text>
+              <Text>Healthcare Systems</Text>
+              <Text>Learning Management Systems</Text>
+            </Column>
+
+            <Column fillWidth gap="12">
+              <Text>CMS Platforms</Text>
+              <Text>Real Estate Solutions</Text>
+              <Text>Event Management Systems</Text>
+              <Text>Custom Business Applications</Text>
+            </Column>
+
+          </Row>
+
+        </Column>
+      </RevealFx>
+
     </Column>
   );
 }
